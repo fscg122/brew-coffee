@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brew-coffee", "brew-coffee.csproj", "{59DBCD02-1B9C-4953-B309-1CFB249AA33C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brew-coffee.Tests", "brew-coffee.Tests\brew-coffee.Tests.csproj", "{31D4CF11-E4C2-46F8-8DC7-D6D7B7594B9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59DBCD02-1B9C-4953-B309-1CFB249AA33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59DBCD02-1B9C-4953-B309-1CFB249AA33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59DBCD02-1B9C-4953-B309-1CFB249AA33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59DBCD02-1B9C-4953-B309-1CFB249AA33C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D4CF11-E4C2-46F8-8DC7-D6D7B7594B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D4CF11-E4C2-46F8-8DC7-D6D7B7594B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D4CF11-E4C2-46F8-8DC7-D6D7B7594B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D4CF11-E4C2-46F8-8DC7-D6D7B7594B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
