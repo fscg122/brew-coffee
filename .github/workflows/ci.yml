@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore brew-coffee.sln
+
+      - name: Build
+        run: dotnet build brew-coffee.sln --no-restore
+
+      - name: Test
+        run: dotnet test brew-coffee.Tests/brew-coffee.Tests.csproj --no-build
