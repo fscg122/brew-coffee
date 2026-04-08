@@ -11,15 +11,20 @@ public class BrewCoffeeController : ControllerBase
 {
     private readonly CoffeeMachineState _coffeeMachineState;
     private readonly IDateTimeProvider _dateTimeProvider;
+    private readonly IWeatherService _weatherService;
 
-    public BrewCoffeeController(CoffeeMachineState coffeeMachineState, IDateTimeProvider dateTimeProvider)
+    public BrewCoffeeController(
+        CoffeeMachineState coffeeMachineState,
+        IDateTimeProvider dateTimeProvider,
+        IWeatherService weatherService)
     {
         _coffeeMachineState = coffeeMachineState;
         _dateTimeProvider = dateTimeProvider;
+        _weatherService = weatherService;
     }
 
     [HttpGet]
-    public IActionResult Get()
+    public async Task<IActionResult> Get(CancellationToken cancellationToken)
     {
         var now = _dateTimeProvider.Now;
 
@@ -35,8 +40,13 @@ public class BrewCoffeeController : ControllerBase
             return StatusCode(StatusCodes.Status503ServiceUnavailable);
         }
 
+        var temperatureCelsius = await _weatherService.GetCurrentTemperatureCAsync(cancellationToken);
+        var message = temperatureCelsius > 30
+            ? "Your refreshing iced coffee is ready"
+            : "Your piping hot coffee is ready";
+
         return Ok(new BrewCoffeeResponse(
-            "Your piping hot coffee is ready",
+            message,
             FormatIso8601(now)));
     }
 
